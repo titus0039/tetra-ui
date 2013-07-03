@@ -5772,3 +5772,61 @@ i.vicon {
 .share-links .tooltip-content {
   transition-delay: .4s;
 }
+.dp-cal {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+.dp-cal dt {
+  padding: 10px 15px;
+  background: #42a2d6;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 3px 3px 0 0;
+}
+.dp-cal dt a {
+  color: #ffffff;
+  font-size: .8em;
+}
+.dp-cal dt .dp-cal-prev-year,
+.dp-cal dt .dp-cal-prev-month {
+  float: left;
+}
+.dp-cal dt .dp-cal-next-year,
+.dp-cal dt .dp-cal-next-month {
+  float: right;
+}
+.dp-cal table {
+  width: auto;
+}
+.dp-cal th,
+.dp-cal td {
+  padding: .6em .75em;
+  text-align: center;
+  cursor: default;
+}
+.dp-cal th {
+  background: #ebebeb;
+  font-weight: normal;
+  color: #828282;
+  border-bottom: 1px solid #c7c7c7;
+}
+.dp-cal td {
+  border-top: 1px solid #d9d9d9;
+  border-left: 1px solid #d9d9d9;
+}
+.dp-cal td:first-child {
+  border-left: none;
+}
+.dp-cal td.dp-cal-other-month {
+  color: #b3b3b3;
+  font-weight: normal;
+}
+.dp-cal td:hover {
+  background: #42a2d6;
+  color: #ffffff;
+}
+.dp-cal tr:first-child td {
+  border-top: none;
+}
