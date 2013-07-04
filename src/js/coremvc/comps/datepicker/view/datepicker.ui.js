@@ -82,7 +82,15 @@ tetra.view.register('datepicker', {
             en: {
               monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
               weekdaysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-              dateFormat: 'DD/MM/YYYY'
+              dateFormat: 'MM/DD/YYYY',
+              weekStartsOn: 0 // Sunday
+            },
+
+            fr: {
+              monthsShort: ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
+              weekdaysMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+              dateFormat: 'DD/MM/YYYY',
+              weekStartsOn: 1 // Monday
             }
           };
         },
@@ -110,13 +118,36 @@ tetra.view.register('datepicker', {
           _(container).attr('data-current-month', month);
 
           for (var i = 0; i < th.length; i++) {
-            _(th[i]).html(me.i18n.en.weekdaysMin[i]);
+            _(th[i]).html(me.i18n.en.weekdaysMin[(i + me.i18n.en.weekStartsOn) % 7]);
+          }
+
+          var today = new Date();
+          var offset = me.i18n.en.weekStartsOn + 1 - firstWeekdayInMonth;
+
+          if (offset > 1) {
+            offset -= 7;
           }
 
           for (i = 0; i < td.length; i++) {
-            var d = new Date(year, month, i - firstWeekdayInMonth + 1);
+            var d = new Date(year, month, i + offset);
+
             _(td[i]).html(d.getDate());
+
+            if (month !== d.getMonth()) {
+              _(td[i]).addClass('dp-cal-other-month');
+            }
+
+            if (
+              today.getFullYear() === d.getFullYear() &&
+              today.getMonth() === d.getMonth() &&
+              today.getDate() === d.getDate()
+            ) {
+              _(td[i]).addClass('dp-cal-today');
+            } else {
+              _(td[i]).removeClass('dp-cal-today');
+            }
           }
+
         }
 
       }

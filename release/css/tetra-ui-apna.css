@@ -5823,6 +5823,10 @@ i.vicon {
   color: #b3b3b3;
   font-weight: normal;
 }
+.dp-cal td.dp-cal-today {
+  background: #a1d1eb;
+  color: #ffffff;
+}
 .dp-cal td:hover {
   background: #42a2d6;
   color: #ffffff;
