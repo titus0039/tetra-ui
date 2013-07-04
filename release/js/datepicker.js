@@ -21,6 +21,26 @@ tetra.view.register('datepicker', {
               );
             },
 
+            '.datepicker .dp-cal-prev-year': function(e, elm) {
+              var container = _(elm).parents('.datepicker:first'),
+                year = me.methods.getDisplayedYear(container),
+                month = me.methods.getDisplayedMonth(container);
+
+              year--;
+
+              me.methods.showMonth(container, year, month);
+            },
+
+            '.datepicker .dp-cal-next-year': function(e, elm) {
+              var container = _(elm).parents('.datepicker:first'),
+                year = me.methods.getDisplayedYear(container),
+                month = me.methods.getDisplayedMonth(container);
+
+              year++;
+
+              me.methods.showMonth(container, year, month);
+            },
+
             '.datepicker .dp-cal-prev-month': function(e, elm) {
               var container = _(elm).parents('.datepicker:first'),
                 year = me.methods.getDisplayedYear(container),
