@@ -9,64 +9,59 @@ tetra.view.register('datepicker', {
         user: {
           'click': {
 
-            '.datepicker .dp-field': function(e, elm) {
-              var today = new Date();
+            '.datepicker': function(e, elm) {
+              var container = _(e.target).parents('.datepicker:first'),
+                  clicked = _(e.target),
+                  year = me.methods.getDisplayedYear(container),
+                  month = me.methods.getDisplayedMonth(container);
 
-              me.methods.showMonth(
-                _(elm).parents('.datepicker:first'),
-                today.getFullYear(),
-                today.getMonth()
-              );
-            },
+              if (clicked.hasClass('dp-cal-prev-month')) {
+                month--;
+                if (month < 0) {
+                  year--;
+                  month = 11;
+                }
+                me.methods.showMonth(container, year, month);
+                return;
+              }
 
-            '.datepicker .dp-cal-prev-year': function(e, elm) {
-              var container = _(elm).parents('.datepicker:first'),
-                year = me.methods.getDisplayedYear(container),
-                month = me.methods.getDisplayedMonth(container);
+              if (clicked.hasClass('dp-cal-next-month')) {
+                month++;
+                if (month > 11) {
+                  year++;
+                  month = 0;
+                }
+                me.methods.showMonth(container, year, month);
+                return;
+              }
 
-              year--;
-
-              me.methods.showMonth(container, year, month);
-            },
-
-            '.datepicker .dp-cal-next-year': function(e, elm) {
-              var container = _(elm).parents('.datepicker:first'),
-                year = me.methods.getDisplayedYear(container),
-                month = me.methods.getDisplayedMonth(container);
-
-              year++;
-
-              me.methods.showMonth(container, year, month);
-            },
-
-            '.datepicker .dp-cal-prev-month': function(e, elm) {
-              var container = _(elm).parents('.datepicker:first'),
-                year = me.methods.getDisplayedYear(container),
-                month = me.methods.getDisplayedMonth(container);
-
-              month--;
-
-              if (month < 0) {
+              if (clicked.hasClass('dp-cal-prev-year')) {
                 year--;
-                month = 11;
+                me.methods.showMonth(container, year, month);
+                return;
               }
 
-              me.methods.showMonth(container, year, month);
-            },
-
-            '.datepicker .dp-cal-next-month': function(e, elm) {
-              var container = _(elm).parents('.datepicker:first'),
-                year = me.methods.getDisplayedYear(container),
-                month = me.methods.getDisplayedMonth(container);
-
-              month++;
-
-              if (month > 11) {
+              if (clicked.hasClass('dp-cal-next-year')) {
                 year++;
-                month = 0;
+                me.methods.showMonth(container, year, month);
+                return;
               }
 
-              me.methods.showMonth(container, year, month);
+              if (clicked.is('td')) {
+                console.log('date clicked', clicked.html());
+                return;
+              }
+
+              _(container).addClass('active');
+              me.methods.showCurrentMonth(container);
+            }
+
+          },
+
+          'clickout': {
+
+            '.datepicker': function(e, elm) {
+              _(elm).removeClass('active');
             }
 
           }
@@ -103,6 +98,11 @@ tetra.view.register('datepicker', {
           return parseInt(_(container).attr('data-current-month'), 10);
         },
 
+        showCurrentMonth: function(container) {
+          var today = new Date();
+          me.methods.showMonth(container, today.getFullYear(), today.getMonth());
+        },
+
         showMonth: function(container, year, month) {
           var date = new Date(year, month, 1),
               firstWeekdayInMonth = date.getDay();
@@ -131,16 +131,17 @@ tetra.view.register('datepicker', {
           for (i = 0; i < td.length; i++) {
             var d = new Date(year, month, i + offset);
 
-            _(td[i]).html(d.getDate());
+            _(td[i]).html(d.getDate())
+                    .attr('data-year', d.getFullYear())
+                    .attr('data-month', d.getMonth());
 
             if (month !== d.getMonth()) {
               _(td[i]).addClass('dp-cal-other-month');
             }
 
-            if (
-              today.getFullYear() === d.getFullYear() &&
-              today.getMonth() === d.getMonth() &&
-              today.getDate() === d.getDate()
+            if (today.getFullYear() === d.getFullYear() &&
+                today.getMonth() === d.getMonth() &&
+                today.getDate() === d.getDate()
             ) {
               _(td[i]).addClass('dp-cal-today');
             } else {

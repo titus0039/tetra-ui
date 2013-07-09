@@ -1,10 +1,40 @@
 // Date picker
 
+.dp-field {
+	input {
+		cursor: pointer;
+	}
+
+	.vicon {
+		position: relative;
+		left: -3.25em;
+		top: -0.25em;
+		font-size: 8px;
+		cursor: pointer;
+	}
+
+	&:hover, .datepicker.active & {
+		input {
+			border-color: @blue-3;
+		}
+
+		.vicon {
+			color: @blue-3;
+		}
+	}
+}
+
 .dp-cal {
-	display: inline-block;
+	position: absolute;
+	z-index: 5000;
+	display: none;
 	background: @white;
 	border-radius: @borderRadiusS;
 	box-shadow: 1px 1px 4px fade(@black, 20%);
+
+	.datepicker.active & {
+		display: block;
+	}
 
 	dt {
 		padding: @spacingS @spacingM;
@@ -27,7 +57,7 @@
 	}
 
 	th, td {
-		padding: .6em .75em;
+		padding: .45em .65em;
 		text-align: center;
 		cursor: default;
 	}

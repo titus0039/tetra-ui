@@ -5772,11 +5772,34 @@ i.vicon {
 .share-links .tooltip-content {
   transition-delay: .4s;
 }
+.dp-field input {
+  cursor: pointer;
+}
+.dp-field .vicon {
+  position: relative;
+  left: -3.25em;
+  top: -0.25em;
+  font-size: 8px;
+  cursor: pointer;
+}
+.dp-field:hover input,
+.datepicker.active .dp-field input {
+  border-color: #42a2d6;
+}
+.dp-field:hover .vicon,
+.datepicker.active .dp-field .vicon {
+  color: #42a2d6;
+}
 .dp-cal {
-  display: inline-block;
+  position: absolute;
+  z-index: 5000;
+  display: none;
   background: #ffffff;
   border-radius: 3px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+.datepicker.active .dp-cal {
+  display: block;
 }
 .dp-cal dt {
   padding: 10px 15px;
@@ -5802,7 +5825,7 @@ i.vicon {
 }
 .dp-cal th,
 .dp-cal td {
-  padding: .6em .75em;
+  padding: .45em .65em;
   text-align: center;
   cursor: default;
 }
