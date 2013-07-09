@@ -1,5 +1,6 @@
 tetra.view.register('datepicker', {
   scope: 'datepicker',
+  use: ['datepicker'],
 
   constr: function(me, app, _) {
     'use strict';
@@ -48,7 +49,14 @@ tetra.view.register('datepicker', {
               }
 
               if (clicked.is('td')) {
-                console.log('date clicked', clicked.html());
+                app.notify('select date', {
+                  id: container.attr('id'),
+                  date: {
+                    year: clicked.attr('data-year'),
+                    month: clicked.attr('data-month'),
+                    day: clicked.html()
+                  }
+                });
                 return;
               }
 
@@ -67,7 +75,28 @@ tetra.view.register('datepicker', {
           }
         },
 
-        controller: {}
+        controller: {
+
+          'set date': function(data) {
+            var container = _('#' + data.id),
+                format = me.methods.getDateFormat(container.attr('data-i18n'));
+
+            var output = format.replace('YYYY', data.date.year)
+              .replace('MM', data.date.month)
+              .replace('DD', data.date.day);
+
+            container.find('input[type="hidden"]').val(
+              data.date.year + '-' +
+              data.date.month + '-' +
+              data.date.day
+            );
+
+            container.find('input[type="text"]').val(output);
+
+            container.removeClass('active');
+          }
+
+        }
       },
 
       methods: {
@@ -78,16 +107,32 @@ tetra.view.register('datepicker', {
               monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
               weekdaysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
               dateFormat: 'MM/DD/YYYY',
-              weekStartsOn: 0 // Sunday
+              weekStart: 0 // Sunday
             },
 
             fr: {
               monthsShort: ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
               weekdaysMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
               dateFormat: 'DD/MM/YYYY',
-              weekStartsOn: 1 // Monday
+              weekStart: 1 // Monday
             }
           };
+        },
+
+        getMonthShort: function(month, i18n) {
+          return me.i18n[i18n].monthsShort[month];
+        },
+
+        getWeekdayMin: function(weekday, i18n) {
+          return me.i18n[i18n].weekdaysMin[weekday];
+        },
+
+        getWeekStart: function(i18n) {
+          return me.i18n[i18n].weekStart;
+        },
+
+        getDateFormat: function(i18n) {
+          return me.i18n[i18n].dateFormat;
         },
 
         getDisplayedYear: function(container) {
@@ -105,7 +150,8 @@ tetra.view.register('datepicker', {
 
         showMonth: function(container, year, month) {
           var date = new Date(year, month, 1),
-              firstWeekdayInMonth = date.getDay();
+              firstWeekdayInMonth = date.getDay(),
+              i18n = _(container).attr('data-i18n');
 
           var table = _(container).find('.dp-cal table'),
               th = _(table).find('th'),
@@ -114,15 +160,15 @@ tetra.view.register('datepicker', {
           _(container).find('.dp-cal-year').html(year);
           _(container).attr('data-current-year', year);
 
-          _(container).find('.dp-cal-month').html(me.i18n.en.monthsShort[month]);
+          _(container).find('.dp-cal-month').html(me.methods.getMonthShort(month, i18n));
           _(container).attr('data-current-month', month);
 
           for (var i = 0; i < th.length; i++) {
-            _(th[i]).html(me.i18n.en.weekdaysMin[(i + me.i18n.en.weekStartsOn) % 7]);
+            _(th[i]).html(me.methods.getWeekdayMin((i + me.methods.getWeekStart(i18n)) % 7, i18n));
           }
 
           var today = new Date();
-          var offset = me.i18n.en.weekStartsOn + 1 - firstWeekdayInMonth;
+          var offset = me.methods.getWeekStart(i18n) + 1 - firstWeekdayInMonth;
 
           if (offset > 1) {
             offset -= 7;
