@@ -1,14 +1,21 @@
 // Date picker
 
+.datepicker {
+	position: relative;
+	display: inline-block;
+}
+
 .dp-field {
+	position: relative;
+
 	input {
 		cursor: pointer;
 	}
 
 	.vicon {
-		position: relative;
-		left: -3.25em;
-		top: -0.25em;
+		position: absolute;
+		right: 	0.5em;
+		top: -0.4em;
 		font-size: 8px;
 		cursor: pointer;
 	}
@@ -27,7 +34,9 @@
 .dp-cal {
 	position: absolute;
 	z-index: 5000;
+	left: 0; top: 100%;
 	display: none;
+	margin-top: (-1 * @spacingXs);
 	background: @white;
 	border-radius: @borderRadiusS;
 	box-shadow: 1px 1px 4px fade(@black, 20%);
@@ -37,19 +46,29 @@
 	}
 
 	dt {
-		padding: @spacingS @spacingM;
+		position: relative;
+		padding: @spacingS 0;
 		background: @blue-3;
 		color: @white;
 		text-align: center;
 		border-radius: @borderRadiusS @borderRadiusS 0 0;
 
-		a {
-			color: @white;
-			font-size: .8em;
+		span {
+			margin: 0 0.2em;
 		}
 
-		.dp-cal-prev-year, .dp-cal-prev-month { float: left; }
-		.dp-cal-next-year, .dp-cal-next-month { float: right; }
+		a {
+			position: absolute;
+			color: @white;
+			font-size: .8em;
+			text-decoration: none;
+		}
+
+		.dp-cal-prev-year { left: @spacingS; letter-spacing: -0.4em; }
+		.dp-cal-prev-month { left: @spacingXl; }
+
+		.dp-cal-next-year { right: @spacingS; letter-spacing: -0.4em; }
+		.dp-cal-next-month { right: @spacingXl; }
 	}
 
 	table {

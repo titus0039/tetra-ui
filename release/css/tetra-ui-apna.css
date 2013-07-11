@@ -5772,13 +5772,20 @@ i.vicon {
 .share-links .tooltip-content {
   transition-delay: .4s;
 }
+.datepicker {
+  position: relative;
+  display: inline-block;
+}
+.dp-field {
+  position: relative;
+}
 .dp-field input {
   cursor: pointer;
 }
 .dp-field .vicon {
-  position: relative;
-  left: -3.25em;
-  top: -0.25em;
+  position: absolute;
+  right: 0.5em;
+  top: -0.4em;
   font-size: 8px;
   cursor: pointer;
 }
@@ -5793,7 +5800,10 @@ i.vicon {
 .dp-cal {
   position: absolute;
   z-index: 5000;
+  left: 0;
+  top: 100%;
   display: none;
+  margin-top: -5px;
   background: #ffffff;
   border-radius: 3px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -5802,23 +5812,35 @@ i.vicon {
   display: block;
 }
 .dp-cal dt {
-  padding: 10px 15px;
+  position: relative;
+  padding: 10px 0;
   background: #42a2d6;
   color: #ffffff;
   text-align: center;
   border-radius: 3px 3px 0 0;
 }
+.dp-cal dt span {
+  margin: 0 0.2em;
+}
 .dp-cal dt a {
+  position: absolute;
   color: #ffffff;
   font-size: .8em;
+  text-decoration: none;
 }
-.dp-cal dt .dp-cal-prev-year,
+.dp-cal dt .dp-cal-prev-year {
+  left: 10px;
+  letter-spacing: -0.4em;
+}
 .dp-cal dt .dp-cal-prev-month {
-  float: left;
+  left: 30px;
 }
-.dp-cal dt .dp-cal-next-year,
+.dp-cal dt .dp-cal-next-year {
+  right: 10px;
+  letter-spacing: -0.4em;
+}
 .dp-cal dt .dp-cal-next-month {
-  float: right;
+  right: 30px;
 }
 .dp-cal table {
   width: auto;

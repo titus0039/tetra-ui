@@ -18,6 +18,7 @@ tetra.view.register('datepicker', {
                   year = me.methods.getDisplayedYear(container),
                   month = me.methods.getDisplayedMonth(container);
 
+              // previous month
               if (clicked.hasClass('dp-cal-prev-month')) {
                 month--;
                 if (month < 0) {
@@ -28,6 +29,7 @@ tetra.view.register('datepicker', {
                 return;
               }
 
+              // next month
               if (clicked.hasClass('dp-cal-next-month')) {
                 month++;
                 if (month > 11) {
@@ -38,38 +40,46 @@ tetra.view.register('datepicker', {
                 return;
               }
 
+              // previous year
               if (clicked.hasClass('dp-cal-prev-year')) {
                 year--;
                 me.methods.showMonth(container, year, month);
                 return;
               }
 
+              // next year
               if (clicked.hasClass('dp-cal-next-year')) {
                 year++;
                 me.methods.showMonth(container, year, month);
                 return;
               }
 
+              // day clicked
               if (clicked.is('td')) {
                 app.notify('select date', {
                   id: container.attr('id'),
                   date: {
-                    year: clicked.attr('data-year'),
-                    month: clicked.attr('data-month'),
-                    day: clicked.html()
+                    year: parseInt(clicked.attr('data-year'), 10),
+                    month: parseInt(clicked.attr('data-month'), 10) + 1,
+                    day: parseInt(clicked.html(), 10)
                   }
                 });
                 return;
               }
 
-              _(container).addClass('active');
-              me.methods.showCurrentMonth(container);
+              // datepicker field clicked
+              if (clicked.is('input[type="text"]') || clicked.is('.vicon')) {
+                _(container).addClass('active');
+                me.methods.showCurrentMonth(container);
+                return;
+              }
             }
 
           },
 
           'clickout': {
 
+            // hide the datepicker
             '.datepicker': function(e, elm) {
               _(elm).removeClass('active');
             }
@@ -81,16 +91,19 @@ tetra.view.register('datepicker', {
 
           'set date': function(data) {
             var container = _('#' + data.id),
-                format = me.methods.getDateFormat(container.attr('data-i18n'));
+                format = me.methods.getDateFormat(container.attr('data-i18n')),
+                year = data.date.year,
+                month = ('0' + data.date.month).slice(-2),
+                day = ('0' + data.date.day).slice(-2);
 
-            var output = format.replace('YYYY', data.date.year)
-              .replace('MM', data.date.month)
-              .replace('DD', data.date.day);
+            var output = format.replace('YYYY', year)
+              .replace('MM', month)
+              .replace('DD', day);
 
             container.find('input[type="hidden"]').val(
-              data.date.year + '-' +
-              data.date.month + '-' +
-              data.date.day
+              year + '-' +
+              month + '-' +
+              day
             );
 
             container.find('input[type="text"]').val(output);
@@ -185,6 +198,8 @@ tetra.view.register('datepicker', {
 
             if (month !== d.getMonth()) {
               _(td[i]).addClass('dp-cal-other-month');
+            } else {
+              _(td[i]).removeClass('dp-cal-other-month');
             }
 
             if (today.getFullYear() === d.getFullYear() &&
