@@ -166,19 +166,33 @@ tetra.view.register('datepicker', {
         showMonth: function(container, year, month) {
           var date = new Date(year, month, 1),
               firstWeekdayInMonth = date.getDay(),
-              i18n = _(container).attr('data-i18n');
+              i18n = container.attr('data-i18n');
 
-          var table = _(container).find('.dp-cal table'),
-              th = _(table).find('th'),
-              td = _(table).find('td');
+          var grid = '<table>' +
+            '<thead>' +
+              '<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>' +
+            '</thead>' +
+            '<tbody>';
 
-          _(container).find('.dp-cal-year').html(year);
-          _(container).attr('data-current-year', year);
+          for (var i = 0; i < 6; i++) {
+            grid += '<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+          }
 
-          _(container).find('.dp-cal-month').html(me.methods.getMonthShort(month, i18n));
-          _(container).attr('data-current-month', month);
+          grid += '<tbody></table>';
 
-          for (var i = 0; i < th.length; i++) {
+          container.find('dd').html(grid);
+
+          var table = container.find('.dp-cal table'),
+              th = table.find('th'),
+              td = table.find('td');
+
+          container.find('.dp-cal-year').html(year);
+          container.attr('data-current-year', year);
+
+          container.find('.dp-cal-month').html(me.methods.getMonthShort(month, i18n));
+          container.attr('data-current-month', month);
+
+          for (i = 0; i < th.length; i++) {
             _(th[i]).html(me.methods.getWeekdayMin((i + me.methods.getWeekStart(i18n)) % 7, i18n));
           }
 
