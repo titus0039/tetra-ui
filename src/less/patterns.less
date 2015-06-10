@@ -8,7 +8,7 @@
    margin-bottom: (@baseLineHeight * 1.5);
    padding-bottom: 5px;
    border-bottom: 1px solid @grayLighter;
-   .clearfix();
+   .clearfixHack();
 
    h1 {
        margin: 2px 0 0 0;
@@ -39,7 +39,6 @@ h1 .sub {
 
 	.bd{
 	   display: table-cell;
-	   *display: inline-block;
 	   zoom: 1;
 
 	   &:after {
@@ -95,7 +94,9 @@ h1 .sub {
 
   &:hover {
     background: @panelBorder;
-
+    a {
+      text-decoration: none;
+    }
     .vicon {
       color: darken(@borderColor, 25%);
 
@@ -117,9 +118,10 @@ h1 .sub {
   background: tint(@black, 24%);
   border: none;
   color: @white;
-  font-family: MuseoSlab, Arial, sans-serif;
   padding: 3px 13px;
   border-radius: 14px;
+  overflow: hidden;
+  height: 17px;
 
   a {
     color: @white;
@@ -131,19 +133,16 @@ h1 .sub {
 }
 
 .ui-badge {
-  #gradient > .vertical(#FF7919, #F56600);
-  background-color: #FF7919;
-  border: 1px solid #F56600;
+  background: @orange2;
+  font-size: 11px;
   color: #FFFFFF;
   display: inline-block;
-  font-weight: bold;
-  padding: 1px 3px;
+  padding: 1px 5px;
   .bras;
 }
 
 .ui-badge.ui-badge-alt {
-  #gradient > .vertical(lighten(@blueBright, 10%), @blueBright);
-  border-color: @blueBright;
+  background: @blue2;
 }
 
 .ui-tag {

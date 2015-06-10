@@ -1,0 +1,456 @@
+  -
+    code: "m"
+    title: "message"
+    unicode: \006D
+  -
+    code: "e"
+    title: "visit"
+    unicode: \0065
+  -
+    code: "z"
+    title: "search"
+    unicode: \007A
+  -
+    code: "c"
+    title: "settings"
+    unicode: \0063
+  -
+    code: "o"
+    title: "viadeo"
+    unicode: \006F
+  -
+    code: "j"
+    title: "tianji"
+    unicode: \006A
+  -
+    code: "t"
+    title: "twitter"
+    unicode: \0074
+  -
+    code: "b"
+    title: "bubbles"
+    unicode: \0062
+  -
+    code: "a"
+    title: "add"
+    unicode: \0061
+  -
+    code: "p"
+    title: "plus"
+    unicode: \002B
+  -
+    code: "p"
+    title: "plus-alt"
+    unicode: \0070
+  -
+    code: "×"
+    title: "remove"
+    unicode: \00D7
+  -
+    code: "*"
+    title: "star"
+    unicode: \002A
+  -
+    code: "r"
+    title: "reload"
+    unicode: \0072
+  -
+    code: "s"
+    title: "speech"
+    unicode: \0073
+  -
+    code: "f"
+    title: "facebook"
+    unicode: \0066
+  -
+    code: "d"
+    title: "date"
+    unicode: \0064
+  -
+    code: "g"
+    title: "googleplus"
+    unicode: \0067
+  -
+    code: "h"
+    title: "phone"
+    unicode: \0068
+  -
+    code: "v"
+    title: "checkmark"
+    unicode: \0076
+  -
+    code: "w"
+    title: "download"
+    unicode: \0077
+  -
+    code: "x"
+    title: "network"
+    unicode: \0078
+  -
+    code: "y"
+    title: "edit"
+    unicode: \0079
+  -
+    code: "l"
+    title: "like"
+    unicode: \006C
+  -
+    code: "<"
+    title: "left-alt"
+    unicode: \003C
+  -
+    code: ">"
+    title: "right-alt"
+    unicode: \003E
+  -
+    code: "‹"
+    title: "prev"
+    unicode: \2039
+  -
+    code: "›"
+    title: "next"
+    unicode: \203A
+  -
+    code: "«"
+    title: "first"
+    unicode: \00AB
+  -
+    code: "»"
+    title: "last"
+    unicode: \00BB
+  -
+    code: "▾"
+    title: "down"
+    unicode: \25BE
+  -
+    code: "▴"
+    title: "up"
+    unicode: \25B4
+  -
+    code: "∧"
+    title: "up-alt"
+    unicode: \2227
+  -
+    code: "∨"
+    title: "down-alt"
+    unicode: \2228
+  -
+    code: "L"
+    title: "location"
+    unicode: \004C
+  -
+    code: "↔"
+    title: "select"
+    unicode: \2194
+  -
+    code: "B"
+    title: "bubble"
+    unicode: \0042
+  -
+    code: "E"
+    title: "export"
+    unicode: \0045
+  -
+    code: "M"
+    title: "degree"
+    unicode: \004D
+  -
+    code: "N"
+    title: "degree-ok"
+    unicode: \004E
+  -
+    code: "P"
+    title: "photo"
+    unicode: \0050
+  -
+    code: "T"
+    title: "tag"
+    unicode: \0054
+  -
+    code: "X"
+    title: "experience"
+    unicode: \0058
+  -
+    code: "k"
+    title: "recommand"
+    unicode: \006B
+  -
+    code: "O"
+    title: "article"
+    unicode: \004F
+  -
+    code: "S"
+    title: "profile"
+    unicode: \0053
+  -
+    code: "C"
+    title: "company"
+    unicode: \0043
+  -
+    code: "F"
+    title: "offer"
+    unicode: \0046
+  -
+    code: "G"
+    title: "group"
+    unicode: \0047
+  -
+    code: "H"
+    title: "school"
+    unicode: \0048
+  -
+    code: "K"
+    title: "book"
+    unicode: \004B
+  -
+    code: "?"
+    title: "question"
+    unicode: \003F
+  -
+    code: "!"
+    title: "blog"
+    unicode: \0021
+  -
+    code: "i"
+    title: "request-ok"
+    unicode: \0069
+  -
+    code: "R"
+    title: "share"
+    unicode: \0052
+  -
+    code: "Z"
+    title: "archive"
+    unicode: \005A
+  -
+    code: ":"
+    title: "information"
+    unicode: \003A
+  -
+    code: ";"
+    title: "warning"
+    unicode: \003B
+  -
+    code: "u"
+    title: "upload"
+    unicode: \0075
+  -
+    code: "n"
+    title: "graph"
+    unicode: \006E
+  -
+    code: "•"
+    title: "bulb"
+    unicode: \2022
+  -
+    code: "/"
+    title: "search-plus"
+    unicode: \002F
+  -
+    code: "€"
+    title: "euro"
+    unicode: \20AC
+  -
+    code: "⊕"
+    title: "save"
+    unicode: \2295
+  -
+    code: "↕"
+    title: "tie"
+    unicode: \2195
+  -
+    code: "☑"
+    title: "saved"
+    unicode: \2611
+  -
+    code: "⍾"
+    title: "bell"
+    unicode: \237E
+  -
+    code: "⎗"
+    title: "contract"
+    unicode: \2397
+  -
+    code: "⎙"
+    title: "print"
+    unicode: \2399
+  -
+    code: "⌚"
+    title: "time"
+    unicode: \231A
+  -
+    code: "⊜"
+    title: "catalog"
+    unicode: \229C
+  -
+    code: "⤱"
+    title: "tools"
+    unicode: \2931
+  -
+    code: "⊙"
+    title: "target"
+    unicode: \2299
+  -
+    code: "⧝"
+    title: "visibility"
+    unicode: \29DD
+  -
+    code: "⇴"
+    title: "stream"
+    unicode: \21F4
+  -
+    code: "◷"
+    title: "data"
+    unicode: \25F7
+  -
+    code: "✪"
+    title: "notification"
+    unicode: \272A
+  -
+    code: "⟁"
+    title: "notification-alt"
+    unicode: \27C1
+  -
+    code: "▷"
+    title: "media"
+    unicode: \25B7
+  -
+    code: "⧓"
+    title: "trust"
+    unicode: \29D3
+  -
+    code: "⚿"
+    title: "key"
+    unicode: \26BF
+  -
+    code: "$"
+    title: "money"
+    unicode: \0024
+  -
+    code: "∞"
+    title: "infinity"
+    unicode: \u221
+  -
+    code: ""
+    title: "day-1"
+    unicode: \F021
+  -
+    code: ""
+    title: "day-2"
+    unicode: \F022
+  -
+    code: ""
+    title: "day-3"
+    unicode: \F023
+  -
+    code: ""
+    title: "day-4"
+    unicode: \F024
+  -
+    code: ""
+    title: "day-5"
+    unicode: \F025
+  -
+    code: ""
+    title: "day-6"
+    unicode: \F026
+  -
+    code: ""
+    title: "day-7"
+    unicode: \F027
+  -
+    code: ""
+    title: "day-8"
+    unicode: \F028
+  -
+    code: ""
+    title: "day-9"
+    unicode: \F029
+  -
+    code: ""
+    title: "day-10"
+    unicode: \F02A
+  -
+    code: ""
+    title: "day-11"
+    unicode: \F02B
+  -
+    code: ""
+    title: "day-12"
+    unicode: \F02C
+  -
+    code: ""
+    title: "day-13"
+    unicode: \F02D
+  -
+    code: ""
+    title: "day-14"
+    unicode: \F02E
+  -
+    code: ""
+    title: "day-15"
+    unicode: \F02F
+  -
+    code: ""
+    title: "day-16"
+    unicode: \F02G
+  -
+    code: ""
+    title: "day-17"
+    unicode: \F02H
+  -
+    code: ""
+    title: "day-18"
+    unicode: \F02K
+  -
+    code: ""
+    title: "day-19"
+    unicode: \F02L
+  -
+    code: ""
+    title: "day-20"
+    unicode: \F034
+  -
+    code: ""
+    title: "day-21"
+    unicode: \F035
+  -
+    code: ""
+    title: "day-22"
+    unicode: \F036
+  -
+    code: ""
+    title: "day-23"
+    unicode: \F037
+  -
+    code: ""
+    title: "day-24"
+    unicode: \F038
+  -
+    code: ""
+    title: "day-25"
+    unicode: \F039
+  -
+    code: ""
+    title: "day-26"
+    unicode: \F03A
+  -
+    code: ""
+    title: "day-27"
+    unicode: \F03B
+  -
+    code: ""
+    title: "day-28"
+    unicode: \F03C
+  -
+    code: ""
+    title: "day-29"
+    unicode: \F03D
+  -
+    code: ""
+    title: "day-30"
+    unicode: \F03E
+  -
+    code: ""
+    title: "day-31"
+    unicode: \F03F

@@ -7,8 +7,8 @@
 
 // Fonts
 @fonts-dir: "/css/core/fonts";
-@fonts-version: "1379521279";
-@font-stack: "Arial", sans-serif;
+@fonts-version: "1418225492";
+@font-stack: "Open Sans", "Arial", sans-serif;
 
 // Right To Left mode (arabic)
 @rtl: false;
@@ -36,15 +36,16 @@
 // Grayscale
 @black:             #000000;
 @blackLight:        lighten(@black, 18%);
-@grayDark:          lighten(@black, 25%);
-@gray:              lighten(@black, 50%);
-@grayLight:         lighten(@black, 75%);
-@grayLighter:       lighten(@black, 90%);
+@grayDark:          #4a494d;
+@gray:              #87868c;
+@grayLightLight:    #9e9ea2;
+@grayLight:         #c5c3c7;
+@grayLighter:       #d9d8dd;
 @white:             #FFFFFF;
-
+@transparent:       rgba(0,0,0,0);
 // Extended palette
 
-@orange1: #f56600;
+@orange1: #f07355;
 @orange2: #f1532e;
 @orange3: #f78d2d;
 @orange4: #feae35;
@@ -65,14 +66,14 @@
 @purple3: #685985;
 @purple4: #685985;
 
-@pageBg: #e8e9eb;
+@pageBg: #E0E2E4;
 
 // Colors
 @green:             #829b13;
 @yellow:            #ffd520;
 @orange:            @orange1;
 
-@blue:              #007de3;
+@blue:              #42a2d6;
 @blueSoft:          #83a0b9;
 @blueDarker:        darken(@blue, 20%);
 @blueDark:          darken(@blue, 10%);
@@ -85,36 +86,99 @@
 @panelBorderDarker: tint(@blueSoft, 42%);
 @overlayBorder:     shade(@blueSoft, 70%);
 
-@premiumColor: #ffbb12;
-
-// Button Colors
-@buttonPrimaryBgColor:     #ffd724;
-@buttonPrimaryEndColor:    #ffc906;
-@buttonPrimaryHoverColor:  #ffc906;
-@buttonPrimaryBorderColor: #ffbb02;
-@buttonPrimaryTextColor:   @blackLight;
-
-@buttonDefaultBgColor:     #fafafa;
-@buttonDefaultEndColor:    #ebebeb;
-@buttonDefaultHoverColor:  #e8e8e8;
-@buttonDefaultBorderColor: #d5d5d5;
-@buttonDefaultTextColor:   @blackLight;
-
-@buttonTerBgColor:         lighten(@green2, 4%);
-@buttonTerHoverColor:      darken(@green2, 3%);
-@buttonTerBorderColor:     @green2;
-@buttonTerTextColor:       @white;
-
+@premiumColor: #feae35;
 @highlightColor:    #F4F2CA;
 
 // Link colors
 @linkColor:         @blue;
-@linkColorHover:    shade(@linkColor, 10%);
+@linkColorHover:    darken(@linkColor, 14%);
+
+
+// buttons
+
+@buttonSmallBorderRadius: 3px;
+@buttonDefaultBorderRadius: 6px;
+@buttonLargeBorderRadius: 6px;
+@buttonLeadBorderRadius: 10px;
+@buttonFatBorderRadius: 10px;
+
+@buttonColor: @white;
+
+@defaultColor:             @grayLightLight;
+@buttonDefaultBgColor:     @defaultColor;
+@buttonDefaultEndColor:    @defaultColor;
+@buttonDefaultHoverColor:  darken(@defaultColor, 5%);
+@buttonDefaultBorderColor: @defaultColor;
+@buttonDefaultTextColor:   @buttonColor;
+@buttonDefaultDisabledTextColor:   darken(@defaultColor, 5%);
+
+@primaryColor:             @blue;
+@buttonPrimaryBgColor:     @primaryColor;
+@buttonPrimaryEndColor:    @primaryColor;
+@buttonPrimaryHoverColor:  darken(@primaryColor, 10%);
+@buttonPrimaryBorderColor: @primaryColor;
+@buttonPrimaryTextColor:   @buttonColor;
+@buttonPrimaryDisabledTextColor:   darken(@primaryColor, 20%);
+
+@secondaryColor:             @orange1;
+@buttonSecondaryBgColor:     @secondaryColor;
+@buttonSecondaryEndColor:    @secondaryColor;
+@buttonSecondaryHoverColor:  desaturate(darken(@secondaryColor, 10%),16%);
+@buttonSecondaryBorderColor: @secondaryColor;
+@buttonSecondaryTextColor:   @buttonColor;
+@buttonSecondaryDisabledTextColor:   darken(@secondaryColor, 20%);
+
+@terColor:                 @green3;
+@buttonTerBgColor:         @terColor;
+@buttonTerHoverColor:      darken(@terColor, 10%);
+@buttonTerBorderColor:     @terColor;
+@buttonTerTextColor:       @buttonColor;
+@buttonTerDisabledTextColor:   darken(@terColor, 20%);
+
+
+
+//Alternatives buttons
+@altButtonHoverColor: @white;
+@altButtonDefaultBgColor : @transparent;
+@altButtonDefaultBorder: @defaultColor;
+@altButtonDefaultTextColor: @defaultColor;
+@altButtonDefaultHoverColor : @defaultColor;
+@altButtonDefaultHoverTextColor : @altButtonHoverColor;
+@altButtonDefaultDisabledTextColor : lighten(@defaultColor, 10%);
+
+@altButtonPrimaryBgColor : @transparent;
+@altButtonPrimaryBorder: @primaryColor;
+@altButtonPrimaryTextColor: @primaryColor;
+@altButtonPrimaryHoverColor : @primaryColor;
+@altButtonPrimaryHoverTextColor : @altButtonHoverColor;
+@altButtonPrimaryDisabledTextColor : lighten(@primaryColor, 10%);
+
+@altButtonSecondaryBgColor : @transparent;
+@altButtonSecondaryBorder: @secondaryColor;
+@altButtonSecondaryTextColor: @secondaryColor;
+@altButtonSecondaryHoverColor : @secondaryColor;
+@altButtonSecondaryHoverTextColor : @altButtonHoverColor;
+@altButtonSecondaryDisabledTextColor : lighten(@secondaryColor, 10%);
+
+@altButtonTerBgColor : @transparent;
+@altButtonTerBorder: @terColor;
+@altButtonTerTextColor: @terColor;
+@altButtonTerHoverColor : @terColor;
+@altButtonTerHoverTextColor : @altButtonHoverColor;
+@altButtonTerDisabledTextColor : lighten(@terColor, 10%);
+
+@altButtonWhiteBgColor : @transparent;
+@altButtonWhiteBorder: @white;
+@altButtonWhiteTextColor: @white;
+@altButtonWhiteHoverColor : @white;
+@altButtonWhiteHoverTextColor : @gray;
+@altButtonWhiteDisabledTextColor : lighten(@gray, 10%);
+
 
 // Typography
 @baseFontSize:      12px;
 @smallFontSize:     @baseFontSize - 1;
-@baseFontColor:     tint(@black, 15%);
+@baseFontColor:     #2a2a2a;
 @baseFontFamily:    Arial, sans-serif;
 @baseLineHeight:    1.4em;
 
@@ -124,6 +188,9 @@
 @borderRadiusMS: 5px;
 @borderRadiusM: 6px;
 @borderRadiusL: 10px;
+
+// Box
+@BorderBoxColor: #dddee0;
 
 // Forms
 @inputBackground:	@white;
@@ -138,6 +205,11 @@
 @dropdownLinkColor: 			@grayDark;
 @dropdownLinkColorHover: 		@white;
 @dropdownLinkBackgroundHover: 	@linkColor;
+
+// Tables
+
+@tablesHeadBackground: lighten(@pageBg, 5%);
+@tablesBodyBackground: #fff;
 
 // Form states and alerts
 // -------------------------

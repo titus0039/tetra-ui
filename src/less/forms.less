@@ -78,7 +78,7 @@
     color: @grayDark;
     vertical-align: middle;
     border: 1px solid @inputBorder;
-    border-radius: @borderRadiusXs;
+    border-radius: @borderRadiusMS;
   }
   .uneditable-textarea {
     width: auto;
@@ -92,6 +92,16 @@
     display: block;
   }
 
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"]{
+    text-indent:5px;
+  }
+
   // Mini reset for unique input types
   input[type="image"],
   input[type="checkbox"],
@@ -100,7 +110,6 @@
     height: auto;
     padding: 0;
     margin: 3px 0;
-    *margin-top: 0; /* IE7 */
     line-height: normal;
     cursor: pointer;
     .border-radius(0);
@@ -114,11 +123,12 @@
   input[type="file"] {
     width: auto;
     padding: initial;
-    line-height: initial;
+    line-height: normal;
     border: initial;
     background-color: @inputBackground;
     background-color: initial;
-    .box-shadow(none);
+    height: auto;
+    box-shadow: none;
   }
 
   // Help out input buttons
@@ -130,22 +140,12 @@
   }
 
   // Set the height of select and file controls to match text inputs
-  select,
-  input[type="file"] {
-    height: 28px; // In IE7, the height of the select element cannot be changed by height, only font-size
-    *margin-top: 4px; // For IE7, add top margin to align select with labels
-    line-height: 28px;
-  }
-
-  // Reset line-height for IE
-  input[type="file"] {
-    line-height: 18px \9;
-  }
-
   // Chrome on Linux and Mobile Safari need background-color
   select {
     width: 220px; // default input width + 10px of padding that doesn't get applied
     background-color: @inputBackground;
+    height: 28px; // In IE7, the height of the select element cannot be changed by height, only font-size
+    line-height: 28px;
   }
 
   // Make multiple select elements height not fixed
@@ -156,7 +156,7 @@
 
   // Remove shadow from image inputs
   input[type="image"] {
-    .box-shadow(none);
+    box-shadow: none;
   }
 
   // Make textarea height behave
@@ -186,7 +186,6 @@
   .checkbox input[type="checkbox"] {
     .float-left(@rtl);
     .margin-left(@rtl, -18px);
-    *clear: left;
   }
 
   // Move the options list down to align with labels
@@ -214,7 +213,7 @@
   input,
   textarea {
     box-shadow: none;
-    .transition(border .2s, box-shadow .2s);
+    .transition(~"border .2s, box-shadow .2s");
   }
   input:focus,
   textarea:focus {
@@ -227,7 +226,7 @@
   input[type="radio"]:focus,
   input[type="checkbox"]:focus,
   select:focus {
-    .box-shadow(none); // override for file inputs
+    box-shadow: none; // override for file inputs
     .tab-focus();
   }
 
@@ -253,7 +252,6 @@
         .box-sizing(border-box);
         width: 100%;
         height: auto;
-        *width: 90%; // IE 7 doesn't support box-sizing
   }
 
   select.input-small { width: (@size-small + 10px); }
@@ -366,7 +364,7 @@
     display: block;
     background-color: @inputBackground;
     border-color: #eee;
-    .box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.025);
     cursor: not-allowed;
   }
 
@@ -387,7 +385,6 @@
 
   .help-inline {
     display: inline-block;
-    .ie7-inline-block();
     vertical-align: middle;
     .padding-left(@rtl, 5px);
   }
@@ -409,7 +406,6 @@
     select,
     .uneditable-input {
       .radius-right(@rtl);
-      *margin-left: 0;
     }
 
     .uneditable-input {
@@ -425,7 +421,6 @@
       padding-top: 4px;
       height: @baseLineHeight;
       .box-sizing(content-box);
-      *height: auto;
     }
 
     .active {
@@ -566,10 +561,6 @@
   // Move over all input controls and content
   .controls {
     .margin-left(@rtl, 160px);
-    /* Super jank IE7 fix to ensure the inputs in .input-append and input-prepend don't inherit the margin of the parent, in this case .controls */
-    *display: inline-block;
-    *margin-left: 0;
-    *padding-left: 20px;
   }
   // Remove bottom margin on block level help text since that's accounted for on .control-group
   .help-block {

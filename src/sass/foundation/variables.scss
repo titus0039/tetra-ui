@@ -1,0 +1,235 @@
+// Global variables
+
+// Static files paths
+$img-sprite-dir: "/v_img/global" !default;
+$img-buttons-dir: "/v_img/coreui/buttons" !default;
+$img-loaders-dir: "/v_img/profilev2" !default;
+
+// Fonts
+$fonts-dir: "/css/core/fonts" !default;
+$fonts-version: "1418225492" !default;
+$font-stack: "Open Sans", "Arial", sans-serif !default;
+
+// Right To Left mode (arabic)
+$rtl: false !default;
+
+// Layout
+$siteWidth:         980px !default;
+
+// Responsive
+$pageWidth: 85% !default;
+$pageWidthM: 90% !default; // when reaching the tablet breakpoint
+$pageWidthS: 97% !default; // when reaching the smartphone breakpoint
+
+$pageWidthMax: 1020px !default;
+
+$breakpointM: 768px !default; // breakpoint for tablets
+$breakpointS: 480px !default; // breakpoint for smartphones
+
+// Spacing
+$spacingXs:         5px !default;
+$spacingS:          10px !default;
+$spacingM:          15px !default;
+$spacingL:          20px !default;
+$spacingXl:         30px !default;
+
+// Grayscale
+$black:             #000000 !default;
+$blackLight:        lighten($black, 18%) !default;
+$grayDark:          #4a494d !default;
+$gray:              #87868c !default;
+$grayLightLight:    #9e9ea2 !default;
+$grayLight:         #c5c3c7 !default;
+$grayLighter:       #d9d8dd !default;
+$white:             #FFFFFF !default;
+$transparent:       rgba(0,0,0,0) !default;
+// Extended palette
+
+$orange1: #f07355 !default;
+$orange2: #f1532e !default;
+$orange3: #f78d2d !default;
+$orange4: #feae35 !default;
+
+$green1: #019875 !default;
+$green2: #0c9f9b !default;
+$green3: #53c1af !default;
+$green4: #c6e6d7 !default;
+
+$blue1: #006aa8 !default;
+$blue2: #007bc2 !default;
+$blue3: #42a2d6 !default;
+$blue4: #1f668c !default;
+$blue5: #7dcde3 !default;
+
+$purple1: #471d63 !default;
+$purple2: #685985 !default;
+$purple3: #685985 !default;
+$purple4: #685985 !default;
+
+$pageBg: #E0E2E4 !default;
+
+// Colors
+$green:             #829b13 !default;
+$yellow:            #ffd520 !default;
+$orange:            $orange1 !default;
+
+$blue:              #42a2d6 !default;
+$blueSoft:          #83a0b9 !default;
+$blueDarker:        darken($blue, 20%) !default;
+$blueDark:          darken($blue, 10%) !default;
+$blueLight:         lighten(desaturate($blue, 35%), 20%) !default;
+$blueLighter:       lighten(desaturate($blue, 35%), 40%) !default;
+$blueBright:				#0065AE !default;
+$borderColor:       mix(#ffffff, $blueSoft, 63%) !default;
+$panelBackground:   mix(#ffffff, $blueSoft, 92%) !default;
+$panelBorder:       mix(#ffffff, $blueSoft, 78%) !default;
+$panelBorderDarker: mix(#ffffff, $blueSoft, 42%) !default;
+$overlayBorder:     mix(#000000, $blueSoft, 70%) !default;
+
+$premiumColor: #feae35 !default;
+$highlightColor:    #F4F2CA !default;
+
+// Link colors
+$linkColor:         $blue !default;
+$linkColorHover:    darken($linkColor, 14%) !default;
+
+
+// buttons
+
+$buttonSmallBorderRadius: 3px !default;
+$buttonDefaultBorderRadius: 6px !default;
+$buttonLargeBorderRadius: 6px !default;
+$buttonLeadBorderRadius: 10px !default;
+$buttonFatBorderRadius: 10px !default;
+
+$buttonColor: $white !default;
+
+$defaultColor:             $grayLightLight !default;
+$buttonDefaultBgColor:     $defaultColor !default;
+$buttonDefaultEndColor:    $defaultColor !default;
+$buttonDefaultHoverColor:  darken($defaultColor, 5%) !default;
+$buttonDefaultBorderColor: $defaultColor !default;
+$buttonDefaultTextColor:   $buttonColor !default;
+$buttonDefaultDisabledTextColor:   darken($defaultColor, 5%) !default;
+
+$primaryColor:             $blue !default;
+$buttonPrimaryBgColor:     $primaryColor !default;
+$buttonPrimaryEndColor:    $primaryColor !default;
+$buttonPrimaryHoverColor:  darken($primaryColor, 10%) !default;
+$buttonPrimaryBorderColor: $primaryColor !default;
+$buttonPrimaryTextColor:   $buttonColor !default;
+$buttonPrimaryDisabledTextColor:   darken($primaryColor, 20%) !default;
+
+$secondaryColor:             $orange1 !default;
+$buttonSecondaryBgColor:     $secondaryColor !default;
+$buttonSecondaryEndColor:    $secondaryColor !default;
+$buttonSecondaryHoverColor:  desaturate(darken($secondaryColor, 10%),16%) !default;
+$buttonSecondaryBorderColor: $secondaryColor !default;
+$buttonSecondaryTextColor:   $buttonColor !default;
+$buttonSecondaryDisabledTextColor:   darken($secondaryColor, 20%) !default;
+
+$terColor:                 $green3 !default;
+$buttonTerBgColor:         $terColor !default;
+$buttonTerHoverColor:      darken($terColor, 10%) !default;
+$buttonTerBorderColor:     $terColor !default;
+$buttonTerTextColor:       $buttonColor !default;
+$buttonTerDisabledTextColor:   darken($terColor, 20%) !default;
+
+
+
+//Alternatives buttons
+$altButtonHoverColor: $white !default;
+$altButtonDefaultBgColor : $transparent !default;
+$altButtonDefaultBorder: $defaultColor !default;
+$altButtonDefaultTextColor: $defaultColor !default;
+$altButtonDefaultHoverColor : $defaultColor !default;
+$altButtonDefaultHoverTextColor : $altButtonHoverColor !default;
+$altButtonDefaultDisabledTextColor : lighten($defaultColor, 10%) !default;
+
+$altButtonPrimaryBgColor : $transparent !default;
+$altButtonPrimaryBorder: $primaryColor !default;
+$altButtonPrimaryTextColor: $primaryColor !default;
+$altButtonPrimaryHoverColor : $primaryColor !default;
+$altButtonPrimaryHoverTextColor : $altButtonHoverColor !default;
+$altButtonPrimaryDisabledTextColor : lighten($primaryColor, 10%) !default;
+
+$altButtonSecondaryBgColor : $transparent !default;
+$altButtonSecondaryBorder: $secondaryColor !default;
+$altButtonSecondaryTextColor: $secondaryColor !default;
+$altButtonSecondaryHoverColor : $secondaryColor !default;
+$altButtonSecondaryHoverTextColor : $altButtonHoverColor !default;
+$altButtonSecondaryDisabledTextColor : lighten($secondaryColor, 10%) !default;
+
+$altButtonTerBgColor : $transparent !default;
+$altButtonTerBorder: $terColor !default;
+$altButtonTerTextColor: $terColor !default;
+$altButtonTerHoverColor : $terColor !default;
+$altButtonTerHoverTextColor : $altButtonHoverColor !default;
+$altButtonTerDisabledTextColor : lighten($terColor, 10%) !default;
+
+$altButtonWhiteBgColor : $transparent !default;
+$altButtonWhiteBorder: $white !default;
+$altButtonWhiteTextColor: $white !default;
+$altButtonWhiteHoverColor : $white !default;
+$altButtonWhiteHoverTextColor : $gray !default;
+$altButtonWhiteDisabledTextColor : lighten($gray, 10%) !default;
+
+
+// Typography
+$baseFontSize:      12px !default;
+$smallFontSize:     $baseFontSize - 1 !default;
+$baseFontColor:     #2a2a2a !default;
+$baseFontFamily:    Arial, sans-serif !default;
+$baseLineHeight:    1.4em !default;
+
+// Border Radius
+$borderRadiusXs: 2px !default;
+$borderRadiusS: 3px !default;
+$borderRadiusMS: 5px !default;
+$borderRadiusM: 6px !default;
+$borderRadiusL: 10px !default;
+
+// Box
+$BorderBoxColor: #dddee0 !default;
+
+// Forms
+$inputBackground:	$white !default;
+$inputBorder: #c5c7c5 !default;
+$inputBorderFocus: $blue2 !default;
+$inputDisabledBackground: $grayLighter !default;
+$inputSelectedControl: #344957 !default;
+
+// Dropdowns
+$dropdownBackground: 			$white !default;
+$dropdownBorder: 				rgba(0,0,0,.2) !default;
+$dropdownLinkColor: 			$grayDark !default;
+$dropdownLinkColorHover: 		$white !default;
+$dropdownLinkBackgroundHover: 	$linkColor !default;
+
+// Tables
+
+$tablesHeadBackground: lighten($pageBg, 5%) !default;
+$tablesBodyBackground: #fff !default;
+
+// Form states and alerts
+// -------------------------
+$warningText: 		#c09853 !default;
+$warningBackground: #fcf8e3 !default;
+$warningBorder: 	darken(adjust-hue($warningBackground, -10), 3%) !default;
+
+$errorText:         #d54243 !default;
+$errorBackground:   lighten($errorText, 58%) !default;
+$errorBorder:       $errorText !default;
+
+$successText: $green2 !default;
+$successBackground: $green2 !default;
+$successBorder: $green2 !default;
+
+$infoText: 			#3a87ad !default;
+$infoBackground: 	#d9edf7 !default;
+$infoBorder: 		darken(adjust-hue($infoBackground, -10), 7%) !default;
+
+// Forms requirements from bootstrap
+$gridColumns:		12 !default;
+$gridColumnWidth:	60px !default;
+$gridGutterWidth:	20px !default;

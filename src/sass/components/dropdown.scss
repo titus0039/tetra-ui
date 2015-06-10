@@ -1,0 +1,208 @@
+// General Properties
+
+$_padding: 8px 10px;
+$_textColor: $grayDark;
+$_ActiveColor: lighten($grayLighter, 8%);
+$_listBorder: 1px solid lighten($grayLighter, 8%);
+$_listBackground: $white;
+
+// Dropdown
+
+.dd  {
+
+  position:relative;
+  display:inline-block;
+  text-shadow: none;
+
+  // Button
+
+  .dd-btn {
+    @include padding-right($rtl, 5px);
+    > .vicon {
+      @include margin($rtl, 0, 0, 0, 5px);
+      line-height: 11px;
+    }
+
+    &.btn-append {
+      @include border-left-color($rtl, rgb(255,255,255)); // force rgb for ie
+      @include border-left-color($rtl, rgba(255,255,255,.4));
+    }
+  }
+
+  // Menu
+
+  .dd-menu {
+    background: $white;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+    @include border-radius(0 0 $borderRadiusS $borderRadiusS);
+    outline: medium none;
+    @include left($rtl, 0);
+    top: 100%;
+    position: absolute;
+    width: auto;
+    min-width: 100% !important;
+    z-index: 10;
+    display: none;
+
+
+    // Menu item
+
+    .dd-item {
+      border-top: $_listBorder;
+      padding: 0;
+      list-style: none;
+
+      &:first-child {
+        border: 0;
+      }
+
+      &:last-child a {
+        @include border-radius(0 0 $borderRadiusS $borderRadiusS);
+      }
+
+      // Menu link
+      a, .label {
+        white-space: nowrap;
+        padding: $_padding;
+        color: $_textColor;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+
+        &.dd-btn {
+          padding-right: 24px;
+        }
+      }
+
+      &.active a, a:hover {
+        background-color: $_ActiveColor;
+      }
+
+      .label {
+        display: inline-block;
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  // State
+
+  &.open {
+    .dd-menu {
+      display: block;
+    }
+    .dd-btn {
+      @include border-radius-bottom(0);
+      &.btn-append {
+        @include border-radius-left($rtl, 0);
+      }
+    }
+    &.pull-top {
+      .dd-btn {
+        @include border-radius-top(0);
+        &.btn-append {
+          @include border-radius(0 0 $buttonDefaultBorderRadius 0);
+          &.btn-small {
+            @include border-radius(0 0 $buttonSmallBorderRadius 0);
+          }
+          &.btn-large {
+            @include border-radius(0 0 $buttonLargeBorderRadius 0);
+          }
+          &.btn-lead {
+            @include border-radius(0 0 $buttonLeadBorderRadius 0);
+          }
+          &.btn-fat {
+            @include border-radius(0 0 $buttonFatBorderRadius 0);
+          }
+        }
+        &:not(.btn-append) {
+          @include border-radius(0 0 $buttonDefaultBorderRadius $buttonDefaultBorderRadius);
+          &.btn-small {
+            @include border-radius(0 0 $buttonSmallBorderRadius $buttonSmallBorderRadius);
+          }
+          &.btn-large {
+            @include border-radius(0 0 $buttonLargeBorderRadius $buttonLargeBorderRadius);
+          }
+          &.btn-lead {
+            @include border-radius(0 0 $buttonLeadBorderRadius $buttonLeadBorderRadius);
+          }
+          &.btn-fat {
+            @include border-radius(0 0 $buttonFatBorderRadius $buttonFatBorderRadius);
+          }
+        }
+      }
+    }
+  }
+
+   // Position
+
+  &.pull-right {
+    .dd-menu {
+      @include left($rtl, auto);
+      @include right($rtl, 0);
+    }
+  }
+
+  &.pull-top {
+    .dd-menu {
+      top: auto;
+      bottom: 100%;
+      box-shadow: 0px 0px 1px rgba(0,0,0,0.2);
+      @include border-radius($buttonDefaultBorderRadius $buttonDefaultBorderRadius 0 0);
+    }
+    .dd-item {
+      &:last-child a {
+        @include border-radius(0);
+      }
+      &:first-child a {
+        @include border-radius($borderRadiusS $borderRadiusS 0 0);
+      }
+    }
+  }
+
+  // Sub menu
+
+  .dd {
+
+    .dd-menu {
+      overflow:visible;
+      min-width:auto;
+      position:absolute;
+      top:-1px;
+      left:100%;
+      background:$_listBackground;
+      display:none;
+
+    }
+
+    &.open {
+      .dd-menu {
+        display:block;
+      }
+    }
+  }
+
+}
+
+.msie7 .dd .dd-menu,
+.msie8 .dd .dd-menu,
+.lt-ie9 .dd .dd-menu {
+  border: 1px solid $grayLighter;
+  min-width: 98% !important;
+}
+.msie7 .dd .dd-menu .dd-item,
+.lt-ie8 .dd .dd-menu .dd-item {
+  overflow: visible;
+}
+.msie7 .dd.open,
+.lt-ie8 .dd.open {
+  z-index:10
+}
+
+// When the dropdown is appended to an input field
+.core-form .input-append .dd .active.btn-default {
+  border-color: $buttonDefaultBorderColor;
+}

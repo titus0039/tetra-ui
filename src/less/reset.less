@@ -39,6 +39,7 @@ a:active {
 
 // Display in IE6-9 and FF3
 // Source: http://github.com/necolas/normalize.css
+main,
 article,
 aside,
 details,
@@ -58,8 +59,6 @@ audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
 }
 
 // Prevents modern browsers from displaying 'audio' without controls
@@ -88,7 +87,7 @@ sub {
 // Source: http://github.com/necolas/normalize.css
 img {
     border: 0;
-    -ms-interpolation-mode: bicubic;
+    -ms-interpolation-mode: bicubic; // IE 8
 }
 
 // Forms
@@ -102,13 +101,11 @@ textarea {
   font-size: 100%;
   margin: 0;
   vertical-align: baseline;
-  *vertical-align: middle;
   font-family: inherit;
 }
 button,
 input {
   line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
-  *overflow: visible; // Inner spacing ie IE6/7
 }
 button::-moz-focus-inner,
 input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
@@ -124,8 +121,6 @@ input[type="submit"] {
 }
 input[type="search"] { // Appearance in Safari/Chrome
   -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-decoration {

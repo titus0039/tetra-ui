@@ -1,0 +1,333 @@
+.bx {
+	padding: $spacingL;
+	background: $white;
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	margin-bottom: $spacingL;
+
+	.bx-close {
+		@include float-right($rtl);
+		position: relative;
+    @include left($rtl, $spacingM);
+		top: (-1 * $spacingM);
+
+		.vicon {
+			color: $grayLight;
+			font-size: 8px;
+		}
+
+		&:hover {
+			.vicon {
+				color: $gray;
+			}
+		}
+	}
+
+	&.bx-default {
+    border: 0 none;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	}
+}
+
+.bx-empty {
+	border: 1px dashed lighten($black, 80%);
+	background: lighten($black, 94%);
+	box-shadow: none;
+	color: lighten($black, 40%);
+
+	.h-bx {
+		border-bottom-color: lighten($black, 83%);
+		color: lighten($black, 40%);
+	}
+
+	&:hover {
+		background: lighten($yellow, 40%);
+	}
+}
+
+.bx-aside {
+	padding: 0;
+	border: none;
+	box-shadow: none;
+
+	.h-bx {
+		border-bottom-color: $BorderBoxColor;
+	}
+}
+
+.bx-alert {
+	position: relative;
+	display: table;
+	width: 100%;
+	padding: 0;
+	border-radius: $borderRadiusS;
+	background: $blue2;
+	color: $white;
+	box-shadow: 1px 1px 4px rgba($black, (20/100));
+
+	.core-form & {
+		padding: 0;
+	}
+
+	a {
+		color: $white;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&.btn {
+			text-decoration: none;
+		}
+	}
+
+	.bx-alert-close {
+		@if $rtl == false { @mixin position($rtl){ right: 0; }}
+		@if $rtl == true { @mixin position($rtl){ left: 0; }}
+
+		position: absolute;
+		top: 0;
+		@include position($rtl);
+
+		.vicon {
+			color: $black;
+			font-size: 10px;
+			opacity: 0.4;
+			height: 2em;
+			line-height: 2em;
+		}
+		&:hover,
+		&:focus {
+			.vicon {
+				opacity: 1;
+			}
+		}
+		&:focus {
+			outline: thin dotted;
+		}
+	}
+
+	.bx-alert-icon {
+		display: table-cell;
+		padding: 0 $spacingM;
+		font-size: 12px;
+		color: $white;
+		vertical-align: middle;
+		background: mix(#000000, $blue2, 10%);
+		border-radius: $borderRadiusS 0 0 $borderRadiusS;
+	}
+
+	.bx-alert-content {
+		display: table-cell;
+		width: 100%;
+		vertical-align: middle;
+		padding: $spacingM $spacingL;
+	}
+
+	.bx-alert-title {
+		margin: 0 0 $spacingXs 0;
+		color: $white;
+	}
+}
+
+.bx-alert-warning {
+	@include gradient-vertical(mix(#ffffff, $yellow, 80%), mix(#ffffff, $yellow, 70%));
+	color: $baseFontColor;
+
+	a {
+		color: $baseFontColor;
+	}
+
+	.bx-alert-icon {
+		background: none;
+		color: $yellow;
+	}
+}
+
+.bx-alert-error {
+	background: $orange2;
+
+	.bx-alert-icon {
+		background: mix(#000000, $orange2, 10%);
+	}
+}
+
+.bx-alert-error-form {
+	background: $errorText;
+
+	.bx-alert-icon {
+		background: mix(#000000, $errorText, 10%);
+	}
+}
+
+.bx-alert-ok {
+	background: $green2;
+
+	.bx-alert-icon {
+		background: mix(#000000, $green2, 10%);
+	}
+}
+
+.bx-alert-notification {
+	background: $blue4;
+
+	.bx-alert-icon {
+		background: mix(#000000, $blue4, 10%);
+	}
+}
+
+.bx-alert-premium {
+  $bg-alert-premium: mix(#ffffff, $black, 24%);
+  background: $bg-alert-premium;
+
+  .bx-alert-icon {
+    background: mix(#000000, $bg-alert-premium, 10%);
+		color: $orange4;
+	}
+}
+
+// Flippable box
+
+.bx-flip {
+	position: relative;
+	margin-bottom: $spacingL;
+}
+
+.bx-flip-front, .bx-flip-back {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	margin: 0;
+	-webkit-transition: -webkit-transform .4s ease-in-out;
+	transition: transform .4s ease-in-out;
+}
+
+.bx-flip-front {
+	position: relative;
+	z-index: 1;
+}
+
+.bx-flip-back {
+	background: $blueSoft;
+	color: $white;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	visibility: hidden;
+
+	.h-bx, .vicon, h2, label,
+	.h-bx-link .vicon, .h-bx-link:focus .vicon, .h-bx-link:hover .vicon {
+		color: $white;
+	}
+
+	.h-bx {
+		border-color: $white;
+	}
+}
+
+.bx-flip-back:not(#unsupported) {
+	visibility: visible;
+	-webkit-transform: perspective(700px) rotateY(180deg);
+	transform: perspective(700px) rotateY(180deg);
+	.bx-flip-vertical & {
+		-webkit-transform: perspective(700px) rotateX(180deg);
+		transform: perspective(700px) rotateX(180deg);
+	}
+	.msie9 & {
+		visibility: hidden;
+	}
+}
+
+.bx-flip-flipped {
+	.bx-flip-front {
+		-webkit-transform: perspective(700px) rotateY(-180deg);
+		transform: perspective(700px) rotateY(-180deg);
+	}
+
+	&.bx-flip-vertical {
+		.bx-flip-front {
+			-webkit-transform: perspective(700px) rotateX(-180deg);
+			transform: perspective(700px) rotateX(-180deg);
+		}
+	}
+
+	.bx-flip-back {
+		z-index: 2;
+		visibility: visible;
+	}
+
+	.bx-flip-back:not(#unsupported) {
+		-webkit-transform: perspective(700px) rotate(0);
+		transform: perspective(700px) rotate(0);
+		.msie9 & {
+			visibility: visible;
+		}
+	}
+}
+
+// Editable box
+
+.bx-editable {
+	position: relative;
+
+	.bx-edit-btn {
+		position: absolute;
+		@include right($rtl, 100%);
+    min-width: 8em;
+		@include margin-right($rtl, $spacingL);
+    @include text-align-right($rtl);
+
+		.bx-edit {
+			@if $rtl == false {
+				@mixin border-radius($rtl){
+				border-radius: $borderRadiusS 0 0 $borderRadiusS;
+			}}
+			@if $rtl == true {
+				@mixin border-radius($rtl){
+				border-radius: 0 $borderRadiusS $borderRadiusS 0;
+			}}
+
+      display: inline-block;
+      margin: 0 0 $spacingS 0;
+			padding: 8px $spacingXs 6px;
+			line-height: $baseLineHeight;
+			background: $blue2;
+      @include border-radius($rtl);
+			white-space: nowrap;
+      text-decoration: none;
+      color: $white;
+
+      .vicon {
+        font-size: 8px;
+        color: $white;
+        vertical-align: top;
+      }
+
+      span {
+        display: inline-block;
+        width: 0;
+        max-width: 0;
+        overflow: hidden;
+        @include transition(max-width 0.3s);
+      }
+
+      &:hover {
+        background: mix(#000000, $blue2, 20%);
+
+        span {
+        	width: auto;
+          max-width: 10em;
+        }
+      }
+		}
+
+    .bx-edit-rm {
+      background: mix(#ffffff, $black, 20%);
+
+      &:hover {
+        background: $black;
+      }
+    }
+
+	}
+}

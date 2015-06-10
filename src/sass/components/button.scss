@@ -1,0 +1,444 @@
+@mixin tetra-button($button){
+  $bgColor: unquote("");
+  $hoverColor: unquote("");
+  $borderColor: unquote("");
+  $textColor: unquote("");
+  $disabledTextColor: unquote("");
+  @if $button == default {
+    @mixin set-color($button){
+    $bgColor : $buttonDefaultBgColor;
+    $hoverColor: $buttonDefaultHoverColor;
+    $borderColor: $buttonDefaultBorderColor;
+    $textColor:   $buttonDefaultTextColor;
+    $disabledTextColor: $buttonDefaultDisabledTextColor;
+  }}
+  @if $button == primary {
+    @mixin set-color($button){
+    $bgColor : $buttonPrimaryBgColor;
+    $hoverColor: $buttonPrimaryHoverColor;
+    $borderColor: $buttonPrimaryBorderColor;
+    $textColor:   $buttonPrimaryTextColor;
+    $disabledTextColor: $buttonPrimaryDisabledTextColor;
+  }}
+  @if $button == secondary {
+    @mixin set-color($button){
+    $bgColor : $buttonSecondaryBgColor;
+    $hoverColor: $buttonSecondaryHoverColor;
+    $borderColor: $buttonSecondaryBorderColor;
+    $textColor:   $buttonSecondaryTextColor;
+    $disabledTextColor: $buttonSecondaryDisabledTextColor;
+  }}
+  @if $button == tertiary {
+    @mixin set-color($button){
+    $bgColor : $buttonTerBgColor;
+    $hoverColor: $buttonTerHoverColor;
+    $borderColor: $buttonTerBorderColor;
+    $textColor:   $buttonTerTextColor;
+    $disabledTextColor: $buttonTerDisabledTextColor;
+  }}
+  @include set-color($button);
+  color: $textColor;
+  > span, > input, > button { color: $textColor; }
+  border: 1px solid $borderColor;
+  background: $bgColor;
+  .vicon {
+    color: $textColor;
+  }
+  &:hover,
+  &:focus {
+    background: $hoverColor;
+    color: $textColor;
+    border-color: $hoverColor;
+    .vicon {
+      color: $textColor;
+    }
+  }
+  &:active {
+    background: $bgColor;
+  }
+  &.btn-loading {
+    background: $bgColor;
+    border-color: $bgColor;
+    color: $disabledTextColor;
+    > span, .vicon {
+      color: $disabledTextColor;
+    }
+  }
+
+  &.btn-disabled {
+    background: lighten($bgColor, 15%);
+    border-color: lighten($bgColor, 15%);
+    color: $disabledTextColor;
+    > span, .vicon {
+      color: $disabledTextColor;
+    }
+  }
+
+  &.btn-inactive,
+  &.btn-inactive:hover,
+  &.btn-loading:focus {
+    border-color: $borderColor;
+    background-color: $bgColor;
+  }
+}
+
+@mixin alt-tetra-button($button){
+  $bgColor: unquote("");
+  $hoverColor: unquote("");
+  $hoverTextColor: unquote("");
+  $borderColor: unquote("");
+  $textColor: unquote("");
+  $disabledTextColor: unquote("");
+  @if $button == default {
+    @mixin set-color($button){
+    $bgColor : $altButtonDefaultBgColor;
+    $hoverColor: $altButtonDefaultHoverColor;
+    $hoverTextColor : $altButtonDefaultHoverTextColor;
+    $borderColor: $altButtonDefaultBorder;
+    $textColor:   $altButtonDefaultTextColor;
+    $disabledTextColor: $altButtonDefaultDisabledTextColor;
+  }}
+  @if $button == primary {
+    @mixin set-color($button){
+    $bgColor : $altButtonPrimaryBgColor;
+    $hoverColor: $altButtonPrimaryHoverColor;
+    $hoverTextColor : $altButtonPrimaryHoverTextColor;
+    $borderColor: $altButtonPrimaryBorder;
+    $textColor:   $altButtonPrimaryTextColor;
+    $disabledTextColor: $altButtonPrimaryDisabledTextColor;
+  }}
+  @if $button == secondary {
+    @mixin set-color($button){
+    $bgColor : $altButtonSecondaryBgColor;
+    $hoverColor: $altButtonSecondaryHoverColor;
+    $hoverTextColor : $altButtonSecondaryHoverTextColor;
+    $borderColor: $altButtonSecondaryBorder;
+    $textColor:   $altButtonSecondaryTextColor;
+    $disabledTextColor: $altButtonSecondaryDisabledTextColor;
+  }}
+  @if $button == tertiary {
+    @mixin set-color($button){
+    $bgColor : $altButtonTerBgColor;
+    $hoverColor: $altButtonTerHoverColor;
+    $hoverTextColor : $altButtonTerHoverTextColor;
+    $borderColor: $altButtonTerBorder;
+    $textColor:   $altButtonTerTextColor;
+    $disabledTextColor: $altButtonTerDisabledTextColor;
+  }}
+  @if $button == wht {
+    @mixin set-color($button){
+    $bgColor : $altButtonWhiteBgColor;
+    $hoverColor: $altButtonWhiteHoverColor;
+    $hoverTextColor : $altButtonWhiteHoverTextColor;
+    $borderColor: $altButtonWhiteBorder;
+    $textColor:   $altButtonWhiteTextColor;
+    $disabledTextColor: $altButtonWhiteDisabledTextColor;
+  }}
+  @include set-color($button);
+  color: $textColor;
+  > span, > input, > button { color: $textColor; }
+  border: 1px solid $borderColor;
+  background: $bgColor;
+  .vicon {
+    color: $textColor;
+  }
+  &:hover,
+  &:focus {
+    background: $hoverColor;
+    color: $hoverTextColor;
+    border-color : $borderColor;
+    .vicon {
+      color: $hoverTextColor;
+    }
+  }
+  &.btn-alt:active {
+    background: darken($hoverColor, 10%);
+    border-color: darken($hoverColor, 10%);
+    color:$hoverTextColor;
+    > span, .vicon{
+      color:$hoverTextColor;
+    }
+  }
+  &.btn-loading {
+    background: $bgColor;
+    border-color: $borderColor;
+    color: $disabledTextColor;
+    > span, .vicon {
+      color: $disabledTextColor;
+    }
+  }
+
+  &.btn-disabled {
+    background: lighten($bgColor, 5%);
+    border-color: lighten($disabledTextColor, 5%);
+    color: $disabledTextColor;
+    > span, .vicon {
+      color: $disabledTextColor;
+    }
+  }
+
+  &.btn-inactive,
+  &.btn-inactive:hover,
+  &.btn-loading:focus,
+  &.btn-loading:hover {
+    border-color: $borderColor;
+    background-color: $bgColor;
+  }
+}
+
+
+.btn, .core-form .btn {
+    @include transition(background 0.3s);
+    @include transition(color 0.3s);
+  // General Properties
+  $_padding:           4px 15px;
+  $_borderRadius:        $borderRadiusM;
+
+  // Rules
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  padding: $_padding;
+  @include border-radius($buttonDefaultBorderRadius);
+  position: relative;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  box-shadow: none;
+  @include user-select(none);
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  &:active, &.active {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+  }
+
+  // Support for old layout
+  span {
+    input, button {
+      display:inline;
+      border:none;
+      padding:0;
+      line-height: $baseLineHeight;
+      background:none;
+      text-align:center;
+      margin:0;
+      cursor:pointer;
+      font-family:inherit;
+      font-size:inherit !important;
+    }
+    img {
+      vertical-align: text-top;
+    }
+  }
+
+  // Icon font
+
+  .vicon.btn-icon-before,
+  .vicon.btn-icon-after {
+    margin-top:-1px;
+    font-size: 7px;
+  }
+  .vicon.btn-icon-before {
+    @include margin-left($rtl, -9px);
+    @include margin-right($rtl, 0);
+  }
+  .vicon.btn-icon-after {
+    @include margin-left($rtl, 0);
+    @include margin-right($rtl, -9px);
+  }
+}
+
+.btn-default,
+.secEventsAction,
+.core-form .btn-default {
+  @include tetra-button(default);
+}
+
+.btn-primary,
+.socialAction,
+.eventsAction,
+.core-form .btn-primary {
+  @include tetra-button(primary);
+}
+
+.btn-secondary,
+.core-form .btn-secondary {
+  @include tetra-button(secondary);
+}
+
+.btn-tertiary {
+  @include tetra-button(tertiary);
+}
+
+.btn-default-alt {
+  @include alt-tetra-button(default);
+}
+.btn-primary-alt {
+  @include alt-tetra-button(primary);
+}
+.btn-secondary-alt {
+  @include alt-tetra-button(secondary);
+}
+.btn-tertiary-alt {
+  @include alt-tetra-button(tertiary);
+}
+.btn-white{
+  @include alt-tetra-button(wht);
+}
+
+.btn-small, .core-form .btn-small {
+  padding: 2px $spacingS;
+  @include border-radius($buttonSmallBorderRadius);
+  font-size: 11px;
+
+  .global-icon {
+    margin: -1px 0;
+  }
+
+}
+
+.btn-large, .core-form .btn-large {
+  padding: 7px $spacingM;
+  @include border-radius($buttonLargeBorderRadius);
+  font-size: 13px;
+}
+
+
+.btn-lead, .core-form .btn-lead {
+  position: relative;
+  z-index: 2;
+  padding: $spacingM $spacingL;
+  font-size: 16px;
+  @include border-radius($buttonLeadBorderRadius);
+}
+.btn-fat, .core-form .btn-fat{
+  position: relative;
+  z-index: 2;
+  padding: $spacingL $spacingXl;
+  font-size: 18px;
+  @include border-radius($buttonFatBorderRadius);
+}
+
+.btn-desc {
+  display: inline-block;
+
+  dt {
+    text-align: center;
+    font-size: ($baseFontSize * .9);
+    color: $gray;
+  }
+}
+
+.btn-inactive,
+.btn-inactive:hover,
+.btn-loading:focus,
+.btn-disabled,
+.btn-disabled:hover,
+.btn-disabled:focus,
+.btn-disabled:active,
+.btn-loading,
+.btn-loading:hover,
+.btn-loading:focus,
+.btn-loading:active {
+  cursor: default;
+}
+
+.btn-loading,
+.btn-loading:hover,
+.btn-loading:focus,
+.btn-loading:active {
+  span {
+   display: inline-block;
+   overflow: hidden;
+   height: 0;
+   padding: 1em 0 0 0;
+   background: transparent url("#{$img-buttons-dir}/loaders/default.gif") no-repeat 50% 0.3em;
+  }
+}
+
+.btn-append {
+  @include border-radius-left($rtl, 0);
+  @include border-radius-right($rtl, $buttonDefaultBorderRadius);
+  @include padding-right($rtl, 4px);
+  @include padding-left($rtl, 0);
+  @include margin-left($rtl, -$buttonDefaultBorderRadius*1.2);
+  &.btn-small {
+    @include border-radius-right($rtl, $buttonSmallBorderRadius);
+    @include margin-left($rtl, -$buttonSmallBorderRadius*1.2);
+  }
+  &.btn-large {
+    @include border-radius-right($rtl, $buttonLargeBorderRadius);
+    @include margin-left($rtl, -$buttonLargeBorderRadius*1.2);
+  }
+  &.btn-lead {
+    @include border-radius-right($rtl, $buttonLeadBorderRadius);
+    @include margin-left($rtl, -$buttonLeadBorderRadius*1.2);
+  }
+  &.btn-fat {
+    @include border-radius-right($rtl, $buttonFatBorderRadius);
+    @include margin-left($rtl, -$buttonFatBorderRadius*1.2);
+  }
+}
+
+.btn-icon {
+  padding: 10px 4px 6px;
+  .vicon {
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+.btn-link {
+  background: none;
+  color: $linkColor;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $linkColorHover;
+  }
+}
+
+.btn-pagination {
+  @include padding($rtl, ($spacingXs + 1), 13px, ($spacingXs + 1), 13px);
+  font-size: ($baseFontSize + 3);
+  color: $grayDark;
+  background: transparent;
+
+  .vicon {
+    color: $grayDark;
+
+    &.btn-icon-after,
+    &.btn-icon-before {
+      position: relative;
+      top: -1px;
+    }
+
+    &.btn-icon-after {
+      @include margin($rtl, 0, -$spacingS, 0, $spacingXs);
+    }
+    &.btn-icon-before {
+      @include margin($rtl, 0, $spacingXs, 0, -$spacingS);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background: mix(#ffffff, $linkColor, 20%);
+    color: $white;
+    box-shadow: none;
+
+    .vicon {
+      color: $white;
+    }
+  }
+
+  &:active {
+    background: $linkColor;
+  }
+}

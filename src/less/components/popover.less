@@ -1,15 +1,25 @@
-.popover-display {
-	position: relative;
-  *z-index: 10;
+@_popover-arrow-border-size: 1px;
+@_popover-arrow-border-color: @grayLighter;
 
-	&:hover,
-  &:focus {
-    .popover {
-  		visibility: visible;
-  		margin-bottom: 7px;
-  		opacity: 1;
-  	}
-  }
+@_popover-arrow-size: 7px;
+@_popover-arrow-back-size: @_popover-arrow-size + @_popover-arrow-border-size;
+
+@_popover-arrow-offset-left: @_popover-arrow-size*2;
+@_popover-arrow-back-offset-left: @_popover-arrow-offset-left - (@_popover-arrow-back-size - @_popover-arrow-size);
+
+.popover-reset () {
+  color: @grayDark !important;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: normal;
+  word-wrap: break-word;
+  text-transform: none;
+  pointer-events: none;
+  margin: 0;
+  .text-align-left(@rtl);
 }
 
 .popover {
@@ -18,65 +28,48 @@
   left: 0;
   bottom: 100%;
   z-index: 1000;
+  border-radius: @borderRadiusS;
 
   width: 230px;
-  margin: 0 0 -7px 0;
-
-	border-radius: @borderRadiusM;
-	box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
 
 	background: @white;
-	border: 2px solid #bcc8d1;
+	border: 1px solid @grayLighter;
 
 	opacity: 0;
 
-	color: @black;
-	font-size: 12px;
-
-  font-weight: normal;
-  font-style: normal;
-	text-decoration: none;
-  text-shadow: none;
-  text-align: left;
-  white-space: normal;
-  word-wrap: break-word;
-  text-transform: none;
-
-	pointer-events: none;
-
-	   -moz-transition: opacity .3s, margin .3s;
-	     -o-transition: opacity .3s, margin .3s;
 	-webkit-transition: opacity .3s, margin .3s;
 	        transition: opacity .3s, margin .3s;
+
+  .popover-reset();
 
 	&:before {
     content: '';
     position: absolute;
-    left: 10px;
-    bottom: -10px;
+    left: @_popover-arrow-back-offset-left;
+    bottom: -@_popover-arrow-back-size;
     width: 0;
     height: 0;
-    border-color: @panelBorderDarker transparent transparent;
+    border-color: @_popover-arrow-border-color transparent transparent;
     border-style: solid;
-    border-width: 10px 11px 0;
+    border-width: @_popover-arrow-back-size @_popover-arrow-back-size 0;
   }
 
 	&:after {
 	  content: '';
 	  position: absolute;
-    left: 14px;
-    bottom: -7px;
+    left: @_popover-arrow-offset-left;
+    bottom: -@_popover-arrow-size;
 	  width: 0;
 	  height: 0;
-		border-color: @panelBackground transparent transparent;
+		border-color: #f6f7f8 transparent transparent;
 		border-style: solid;
-		border-width: 7px 7px 0;
+		border-width: @_popover-arrow-size @_popover-arrow-size 0;
 	}
 
 	.popover-header {
 	  display: block;
 	  padding: @spacingS @spacingS @spacingXs;
-	  border-bottom: 1px dotted @borderColor;
+	  border-bottom: 1px dotted @grayLighter;
 	}
 
 	.popover-content {
@@ -87,43 +80,59 @@
 	.popover-footer {
     display: block;
     padding: @spacingS;
-    background: @panelBackground;
-    border-top: 1px solid @panelBorder;
-    border-bottom-left-radius: @borderRadiusS;
-    border-bottom-right-radius: @borderRadiusS;
+    background: #f6f7f8;
+    border-top: 1px solid lighten(@grayLighter, 10%);
+    border-radius: 0 0 @borderRadiusS @borderRadiusS;
   }
 }
 
 /* On bottom */
 
-.popover-display.popover-bottom {
-  &:hover,
-  &:focus {
-    .popover {
-      margin-top: 7px;
-    }
-  }
-}
+
 
 .popover-bottom .popover {
   top: 100%;
   bottom: auto;
-  margin: -7px 0 0 0;
+  margin: 0;
 
   &:before {
-    top: -10px;
-    border-color: transparent transparent @panelBorderDarker;
+    top: -@_popover-arrow-back-size;
+    border-color: transparent transparent @_popover-arrow-border-color;
     border-style: solid;
-    border-width: 0 11px 10px;
+    border-width: 0 @_popover-arrow-back-size @_popover-arrow-back-size;
+    left: @_popover-arrow-back-offset-left;
   }
 
   &:after {
-    top: -7px;
+    top: -@_popover-arrow-size;
     border-color: transparent transparent @white;
     border-style: solid;
-    border-width: 0 7px 7px;
+    border-width: 0 @_popover-arrow-size @_popover-arrow-size;
   }
 }
+
+.popover-display {
+  position: relative;
+
+  &:hover,
+  &:focus {
+    .popover {
+      visibility: visible;
+      margin-bottom: 10px;
+      opacity: 1;
+    }
+  }
+}
+
+.popover-display.popover-bottom {
+  &:hover,
+  &:focus {
+    .popover {
+      margin-top: 10px;
+    }
+  }
+}
+
 
 /* On left */
 
@@ -132,12 +141,12 @@
   left: auto;
 
   &:before {
-    right: 10px;
+    right: @_popover-arrow-back-offset-left;
     left: auto;
   }
 
   &:after {
-    right: 14px;
+    right: @_popover-arrow-offset-left;
     left: auto;
   }
 }

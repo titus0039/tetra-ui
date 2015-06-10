@@ -6,13 +6,10 @@
   width: 100%;
   height: 100%;
 
-  opacity: 0.6;
-  filter: ~"alpha(opacity = 60)";
+  .opacity(60);
 
   background: @black;
   background: -webkit-radial-gradient(50% 20%, ellipse farthest-corner, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
-  background:    -moz-radial-gradient(50% 20%, ellipse farthest-corner, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
-  background:      -o-radial-gradient(50% 20%, ellipse farthest-corner, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
   background:         radial-gradient(50% 20%, ellipse farthest-corner, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
 
   -webkit-animation: popin-overlay-fadein 0.5s;
@@ -56,7 +53,7 @@
       padding: 17px 28px;
       .padding-right(@rtl, 60px);
       min-height: 1.3em;
-      background: tint(@black, 20%);
+      background: @grayDark;
       color: @white;
       border-radius: @borderRadiusM @borderRadiusM 0 0;
       .clearfixHack();
@@ -72,8 +69,8 @@
         top: 0; bottom: 0;
         .right(@rtl, 0);
         padding: 0 12px;
-        line-height: 4.4em;
-        background: tint(@black, 15%);
+        line-height: 4.2em;
+        background: darken(@grayDark, 10%);
         color: tint(@black, 60%);
         text-decoration: none;
         .border-top-right-radius(@rtl, @borderRadiusM);
@@ -94,7 +91,7 @@
         }
 
         &:hover {
-          background: @black;
+          background: darken(@grayDark, 15%);
 
           span {
             width: auto;

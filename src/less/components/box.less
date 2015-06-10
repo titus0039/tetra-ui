@@ -1,38 +1,35 @@
-// Box
-
 .bx {
 	padding: @spacingL;
-	border-radius: @borderRadiusS;
 	background: @white;
-	box-shadow: 1px 1px 4px fade(@black, 20%);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 	margin-bottom: @spacingL;
 
 	.bx-close {
-		float: right;
+		.float-right(@rtl);
 		position: relative;
-		left: @spacingL;
-		top: (-1 * @spacingL);
+    .left(@rtl, @spacingM);
+		top: (-1 * @spacingM);
 
 		.vicon {
-			color: tint(@blueSoft, 40%);
+			color: @grayLight;
 			font-size: 8px;
 		}
 
 		&:hover {
 			.vicon {
-				color: @blueSoft;
+				color: @gray;
 			}
 		}
 	}
 
 	&.bx-default {
-		border: 1px solid @borderColor;
-		box-shadow: none;
+    border: 0 none;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 	}
 }
 
 .bx-empty {
-	border: 2px dashed lighten(@black, 80%);
+	border: 1px dashed lighten(@black, 80%);
 	background: lighten(@black, 94%);
 	box-shadow: none;
 	color: lighten(@black, 40%);
@@ -53,7 +50,7 @@
 	box-shadow: none;
 
 	.h-bx {
-		border-bottom-color: @blue3;
+		border-bottom-color: @BorderBoxColor;
 	}
 }
 
@@ -80,7 +77,6 @@
 		}
 
 		&.btn {
-			color: @baseFontColor;
 			text-decoration: none;
 		}
 	}
@@ -119,9 +115,6 @@
 		vertical-align: middle;
 		background: shade(@blue2, 10%);
 		border-radius: @borderRadiusS 0 0 @borderRadiusS;
-		*float: left; // IE 7 needs hacks (lack of table-cell support)
-		*padding: @spacingM;
-		*background: none;
 	}
 
 	.bx-alert-content {
@@ -129,8 +122,6 @@
 		width: 100%;
 		vertical-align: middle;
 		padding: @spacingM @spacingL;
-		*width: auto; // IE 7 needs hacks (lack of table-cell support)
-		*zoom: 1;
 	}
 
 	.bx-alert-title {
@@ -158,7 +149,6 @@
 
 	.bx-alert-icon {
 		background: shade(@orange2, 10%);
-		*background: none; // IE 7 needs hacks (lack of table-cell support)
 	}
 }
 
@@ -167,7 +157,6 @@
 
 	.bx-alert-icon {
 		background: shade(@errorText, 10%);
-		*background: none; // IE 7 needs hacks (lack of table-cell support)
 	}
 }
 
@@ -176,7 +165,6 @@
 
 	.bx-alert-icon {
 		background: shade(@green2, 10%);
-		*background: none; // IE 7 needs hacks (lack of table-cell support)
 	}
 }
 
@@ -185,17 +173,16 @@
 
 	.bx-alert-icon {
 		background: shade(@blue4, 10%);
-		*background: none; // IE 7 needs hacks (lack of table-cell support)
 	}
 }
 
 .bx-alert-premium {
-	background: tint(@black, 24%);
+  @bg-alert-premium: tint(@black, 24%);
+  background: @bg-alert-premium;
 
-	.bx-alert-icon {
-		background: shade(tint(@black, 24%), 10%);
+  .bx-alert-icon {
+    background: shade(@bg-alert-premium, 10%);
 		color: @orange4;
-		*background: none; // IE 7 needs hacks (lack of table-cell support)
 	}
 }
 
@@ -242,6 +229,13 @@
 	visibility: visible;
 	-webkit-transform: perspective(700px) rotateY(180deg);
 	transform: perspective(700px) rotateY(180deg);
+	.bx-flip-vertical & {
+		-webkit-transform: perspective(700px) rotateX(180deg);
+		transform: perspective(700px) rotateX(180deg);
+	}
+	.msie9 & {
+		visibility: hidden;
+	}
 }
 
 .bx-flip-flipped {
@@ -250,14 +244,24 @@
 		transform: perspective(700px) rotateY(-180deg);
 	}
 
+	&.bx-flip-vertical {
+		.bx-flip-front {
+			-webkit-transform: perspective(700px) rotateX(-180deg);
+			transform: perspective(700px) rotateX(-180deg);
+		}
+	}
+
 	.bx-flip-back {
 		z-index: 2;
 		visibility: visible;
 	}
 
 	.bx-flip-back:not(#unsupported) {
-		-webkit-transform: perspective(700px) rotateY(0);
-		transform: perspective(700px) rotateY(0);
+		-webkit-transform: perspective(700px) rotate(0);
+		transform: perspective(700px) rotate(0);
+		.msie9 & {
+			visibility: visible;
+		}
 	}
 }
 

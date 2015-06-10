@@ -1,0 +1,117 @@
+// Flipswitch
+
+.flipswitch {
+	label {
+		display: inline;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		input {
+			display: none;
+		}
+	}
+
+	.flipswitch-lbl-no {
+		color: $black;
+	}
+
+	.flipswitch-lbl-yes {
+		color: lighten($black, 70%);
+		&:hover {
+			color: $black;
+		}
+	}
+
+	.flipswitch-sliders {
+		display: inline-block;
+		position: relative;
+		width: 45px; height: 24px;
+		margin: 0 $spacingXs;
+		border-radius: 12px;
+		vertical-align: middle;
+		cursor: default;
+	}
+
+	.flipswitch-outer {
+		display: block;
+		width: 100%; height: 100%;
+		overflow: hidden;
+		border-radius: 12px;
+	}
+
+	.flipswitch-inner {
+		display: block;
+		width: 200%; height: 100%;
+		margin-left: -100%;
+
+		-webkit-transition: margin-left 0.2s ease-in;
+    transition: margin-left 0.2s ease-in;
+	}
+
+	.flipswitch-btn-no, .flipswitch-btn-yes {
+		float: left;
+		width: 50%; height: 100%;
+		box-shadow: 0 1px 3px rgba($black, (30/100)) inset;
+	}
+
+	.flipswitch-btn-no {
+    float: right;
+		background: $grayLighter;
+
+    .flipswitch-icon{
+      margin-left: 17px;
+      color: $gray;
+      margin-top: 2px;
+      font-size: 1em;
+    }
+	}
+
+	.flipswitch-btn-yes {
+		background: $green3;
+    .flipswitch-icon{
+      margin-top: 2px;
+      color: white;
+      font-size: 0.8em;
+    }
+	}
+
+	.flipswitch-slider {
+		position: absolute;
+		left: 0; top: 2px;
+		width: 20px; height: 20px;
+		margin-left: 2px;
+		border-radius: 12px;
+		background: $white;
+		text-align: center;
+		line-height: 20px;
+		font-size: 8px;
+		color: mix(#000000, $white, 15%);
+		cursor: pointer;
+
+		-webkit-transition: left 0.2s ease-in, margin-left 0.2s ease-in;
+    transition: left 0.2s ease-in, margin-left 0.2s ease-in;
+
+    &:hover {
+    	background: mix(#000000, $white, 5%);
+    }
+	}
+
+	&.flipswitch-yes {
+		.flipswitch-lbl-no {
+			color: lighten($black, 70%);
+			&:hover {
+				color: $black;
+			}
+		}
+		.flipswitch-lbl-yes {
+			color: $black;
+		}
+		.flipswitch-inner {
+			margin-left: 0;
+		}
+		.flipswitch-slider {
+			left: 100%;
+			margin-left: -22px;
+		}
+	}
+}
